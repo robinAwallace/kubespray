@@ -102,6 +102,8 @@ resource "upcloud_server" "master" {
     keys            = var.ssh_public_keys
     create_password = false
   }
+
+  user_data = templatefile("${path.module}/templates/cloud-init.tmpl",{})
 }
 
 resource "upcloud_server" "worker" {
@@ -159,6 +161,8 @@ resource "upcloud_server" "worker" {
     keys            = var.ssh_public_keys
     create_password = false
   }
+
+  user_data = templatefile("${path.module}/templates/cloud-init.tmpl",{})
 }
 
 resource "upcloud_firewall_rules" "master" {

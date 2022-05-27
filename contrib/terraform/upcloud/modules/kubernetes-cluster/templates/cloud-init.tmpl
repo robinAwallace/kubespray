@@ -1,0 +1,11 @@
+#cloud-config
+write_files:
+  - path: /etc/netplan/eth0.yaml
+    content: |
+      network:
+        version: 2
+        ethernets:
+          eth0:
+            dhcp4: true
+runcmd: 
+  - netplan apply
