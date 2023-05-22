@@ -2,7 +2,7 @@ terraform {
   required_providers {
     exoscale = {
       source  = "exoscale/exoscale"
-      version = ">= 0.21"
+      version = ">= 0.48"
     }
     null = {
       source = "hashicorp/null"
@@ -11,5 +11,6 @@ terraform {
       source = "hashicorp/template"
     }
   }
-  required_version = ">= 0.13"
+  experiments      = [module_variable_optional_attrs]
+  required_version = ">= 0.14"
 }

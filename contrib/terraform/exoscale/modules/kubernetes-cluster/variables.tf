@@ -11,9 +11,11 @@ variable "prefix" {}
 variable "machines" {
   type = map(object({
     node_type = string
+    family    = string
     size      = string
     boot_disk = object({
-      image_name                = string
+      image_name                = optional(string)
+      image_id                  = optional(string)
       root_partition_size       = number
       ceph_partition_size       = number
       node_local_partition_size = number

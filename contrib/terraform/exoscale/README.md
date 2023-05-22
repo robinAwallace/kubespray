@@ -31,7 +31,7 @@ The setup looks like following
 
 ## Requirements
 
-* Terraform 0.13.0 or newer (0.12 also works if you modify the provider block to include version and remove all `versions.tf` files)
+* Terraform 0.14.0 or newer
 
 ## Quickstart
 
@@ -125,8 +125,10 @@ terraform destroy -var-file default.tfvars ../../contrib/terraform/exoscale
 * `machines`: Machines to provision. Key of this object will be used as the name of the machine
   * `node_type`: The role of this node *(master|worker)*
   * `size`: The size to use
+  * `family`: The family for the size  (optional *default value: standard*)
   * `boot_disk`: The boot disk to use
-    * `image_name`: Name of the image
+    * `image_name`: Name of the image (optional *name or id must be specified*)
+    * `image_id`: Id of the image (optional *name or id must be specified*)
     * `root_partition_size`: Size *(in GB)* for the root partition
     * `ceph_partition_size`: Size *(in GB)* for the partition for rook to use as ceph storage. *(Set to 0 to disable)*
     * `node_local_partition_size`: Size *(in GB)* for the partition for node-local-storage. *(Set to 0 to disable)*
