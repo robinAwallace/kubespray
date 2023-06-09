@@ -2,7 +2,7 @@ output "master_ip_addresses" {
   value = {
     for key, instance in exoscale_compute_instance.master :
     instance.name => {
-      "private_ip" = contains(keys(data.exoscale_compute_instance.master_nodes), key) ? "" : ""
+      "private_ip" = contains(keys(data.exoscale_compute_instance.master_nodes), key) ? data.exoscale_compute_instance.master_nodes[key].network_interface.ip_address : ""
       "public_ip"  = exoscale_compute_instance.master[key].public_ip_address
     }
   }
