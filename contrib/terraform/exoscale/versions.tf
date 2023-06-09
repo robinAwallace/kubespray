@@ -2,7 +2,7 @@ terraform {
   required_providers {
     exoscale = {
       source  = "exoscale/exoscale"
-      version = ">= 0.48"
+      version = ">= 0.49"
     }
     null = {
       source = "hashicorp/null"
